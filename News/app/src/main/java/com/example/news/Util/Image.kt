@@ -1,7 +1,6 @@
-package com.example.news.Util
+package com.example.news.util
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
