@@ -1,9 +1,7 @@
 package com.example.news.network
 
-import com.example.news.Util.Constants
-import com.example.news.Util.Constants.Companion.API_KEY
-import com.example.news.Util.Constants.Companion.BASE_URL
-import com.example.news.model.Article
+import com.example.news.util.Constants
+import com.example.news.util.Constants.Companion.API_KEY
 import com.example.news.model.NewResponse
 import io.reactivex.Single
 import retrofit2.Retrofit
