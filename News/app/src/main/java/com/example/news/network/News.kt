@@ -16,8 +16,9 @@ interface News {
     @GET("top-headlines")
     fun getNews(
         @Query("country") country: String,
-        @Query("apiKey") apiKey: String=API_KEY,
-        @Query("page") page: Int
+        @Query("page") page: Int,
+        @Query("apiKey") apiKey: String= API_KEY,
+
 
     ):Single<NewResponse>
 
@@ -28,7 +29,7 @@ interface News {
         @Query("sortBy") sortBy: String,
         @Query("apiKey") apiKey: String
 
-    ):Single<Article>
+    ):Single<NewResponse>
 
     companion object {
         const val BASE_URL = Constants.BASE_URL
