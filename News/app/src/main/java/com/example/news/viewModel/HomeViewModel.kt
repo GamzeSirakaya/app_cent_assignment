@@ -4,7 +4,7 @@ package com.example.news.viewModel
 import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.news.Util.Parameter
+import com.example.news.util.Parameter
 import com.example.news.model.NewResponse
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -29,6 +29,8 @@ class HomeViewModel : ViewModel() {
                 .subscribeWith(object : DisposableSingleObserver<NewResponse>() {
                     override fun onSuccess(t: NewResponse) {
                         newResponse.value = t
+                        //newResponse.value=disposable.add(com.example.news.network.News.getService().getNewsDetail())
+
                         newsError.value = false
                         newsLoading.value = false
                     }
