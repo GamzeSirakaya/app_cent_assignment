@@ -95,7 +95,6 @@
                     <TextView
                         android:id="@+id/subtitle_on_appbar"
                         style="@style/Base.TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
-                        android:text="Subtitle"
                         android:textSize="12dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -142,7 +141,6 @@
                         android:textStyle="bold"
                         android:fontFamily="sans-serif-light"
                         android:textSize="19sp"
-                        android:text="Title of News"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         />
@@ -187,7 +185,8 @@
                         app:layout_behavior="@string/appbar_scrolling_view_behavior"
                         android:id="@+id/webView"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"/>
+                        android:layout_height="match_parent"
+                        />
 
 
                 </RelativeLayout>
@@ -226,7 +225,6 @@
             android:id="@+id/date"
             android:layout_marginLeft="27dp"
             android:layout_marginRight="10dp"
-            android:text="01 January 1990"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </FrameLayout>
