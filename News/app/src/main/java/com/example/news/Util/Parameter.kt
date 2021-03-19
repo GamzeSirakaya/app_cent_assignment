@@ -1,4 +1,4 @@
-package com.example.news.Util
+package com.example.news.util
 
 import java.util.*
 
