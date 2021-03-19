@@ -1,6 +1,6 @@
 package com.example.news.model
 
 data class Source(
-    val id:Int,
+    val id:Any,
     val name:String
 )
