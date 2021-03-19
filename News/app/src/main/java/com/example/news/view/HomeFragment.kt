@@ -1,5 +1,6 @@
 package com.example.news.view
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -17,7 +18,7 @@ import kotlinx.android.synthetic.main.recycler_item.*
 
 class HomeFragment : Fragment() {
     private lateinit var viewModel: HomeViewModel
-    private val newsAdapter = NewsAdapter(arrayListOf())
+    private val newsAdapter = NewsAdapter()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,12 +40,37 @@ class HomeFragment : Fragment() {
         news_recycler_view.layoutManager = LinearLayoutManager(context)
         news_recycler_view.adapter = newsAdapter
         observeLiveData()
+
     }
 
     fun observeLiveData() {
         viewModel.newResponse.observe(viewLifecycleOwner, Observer { newResponse ->
             newResponse?.let {
-                newsAdapter.newListUpdate(newResponse.articles) }
+                newsAdapter.differ.submitList(newResponse.articles) }
+
+        })
+        viewModel.newsError.observe(viewLifecycleOwner, Observer { newsError ->
+            newsError?.let {
+                if (it) {
+                    noResult.visibility = View.VISIBLE
+                } else {
+                    noResult.visibility = View.GONE
+
+                }
+            }
+
+        })
+        viewModel.newsLoading.observe(viewLifecycleOwner, Observer { newsLoading ->
+            newsLoading?.let {
+                if (it) {
+                  news_recycler_view.visibility = View.GONE
+                    noResult.visibility = View.GONE
+                    progress.visibility = View.VISIBLE
+                } else {
+                    progress.visibility = View.GONE
+
+                }
+            }
 
         })
 
