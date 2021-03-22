@@ -1,0 +1,31 @@
+package com.example.news.model
+
+import androidx.annotation.NonNull
+import androidx.room.ColumnInfo
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
+
+@Entity
+
+data class Article(
+    @PrimaryKey(autoGenerate = true)
+    val id: Int? = null,
+    @ColumnInfo(name = "author")
+    val author: String?,
+    @ColumnInfo(name = "content")
+    val content: String?,
+    @ColumnInfo(name = "description")
+    val description: String?,
+    @ColumnInfo(name = "publishedAt")
+    val publishedAt: String?,
+   val source: Source,
+    @ColumnInfo(name = "title")
+    val title: String?,
+    @ColumnInfo(name = "url")
+    val url: String?,
+    @ColumnInfo(name = "urlToImage")
+    val urlToImage: String?
+) : Serializable
