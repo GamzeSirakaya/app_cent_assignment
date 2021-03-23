@@ -6,8 +6,11 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Filter
+import android.widget.Filterable
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.Navigation
+import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -18,10 +21,7 @@ import com.example.news.util.dateFormat
 import kotlinx.android.synthetic.main.recycler_item.view.*
 
 
-
-class NewsAdapter :
-    RecyclerView.Adapter<NewsAdapter.NewsViewHolder>() {
-
+class NewsAdapter : PagedListAdapter<Article, NewsAdapter.NewsViewHolder>(diffUtilCallBack) {
 
     inner class NewsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
 
@@ -35,16 +35,18 @@ class NewsAdapter :
         )
     }
 
+
     override fun onBindViewHolder(holder: NewsViewHolder, position: Int) {
         val article = differ.currentList[position]
         holder.itemView.apply {
-            Glide.with(this).load(article.urlToImage).into(img)
-           source.text = article.source.name
+            Glide.with(this).load(article.urlToImage).into(urlToImage)
+            sourceName.text = article.source.name
             title.text = article.title
             desc.text = article.description
             publishedAt.text = article.publishedAt.dateFormat()
             setOnClickListener {
-                onItemClickListener?.let { it(article)
+                onItemClickListener?.let {
+                    it(article)
 
                 }
             }
@@ -70,16 +72,17 @@ class NewsAdapter :
         private val diffUtilCallBack =
             object : DiffUtil.ItemCallback<Article>() {
                 override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-                    return oldItem.title == newItem.title
+                    return oldItem == newItem
                 }
 
                 override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
-                    return oldItem == newItem
+                    return oldItem.title == newItem.title && oldItem.description == newItem.description
                 }
 
             }
 
     }
+
 
 }
 
