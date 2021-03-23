@@ -1,9 +1,9 @@
 package com.example.news.network
 
+import com.example.news.model.Article
 import com.example.news.util.Constants
 import com.example.news.util.Constants.Companion.API_KEY
 import com.example.news.model.NewResponse
-import com.example.news.util.Constants.Companion.PAGE
 import io.reactivex.Single
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -15,12 +15,13 @@ interface News {
     @GET("top-headlines")
     fun getNews(
         @Query("country") country: String,
-        @Query("page") page: Int= PAGE,
-        @Query("apiKey") apiKey: String= API_KEY,
+        @Query("apiKey") apiKey: String,
+        @Query("pageSize") pageSize: Int,
+        @Query("page") page: Int
 
 
-        ):Single<NewResponse>
 
+        ): Single<NewResponse>
 
 
     companion object {
