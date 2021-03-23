@@ -8,11 +8,6 @@
     android:layout_height="wrap_content"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/articles_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:visibility="gone" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardview"
@@ -31,7 +26,7 @@
             android:background="?android:attr/selectableItemBackground">
 
             <ImageView
-                android:id="@+id/img"
+                android:id="@+id/urlToImage"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:scaleType="centerCrop"
@@ -42,7 +37,7 @@
                 android:id="@+id/shadow_bottom"
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:layout_alignBottom="@id/img"
+                android:layout_alignBottom="@id/urlToImage"
                 android:src="@drawable/bottom_shadow" />
 
 
@@ -63,7 +58,7 @@
             <FrameLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img"
+                android:layout_below="@id/urlToImage"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="-50dp"
                 android:layout_marginRight="20dp"
@@ -91,7 +86,7 @@
                 android:id="@+id/title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/img"
+                android:layout_below="@id/urlToImage"
                 android:layout_marginLeft="16dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="16dp"
@@ -112,7 +107,7 @@
                 />
 
             <TextView
-                android:id="@+id/source"
+                android:id="@+id/sourceName"
                 android:layout_width="wrap_content"
                 android:layout_height="20dp"
                 android:layout_below="@id/desc"
@@ -126,8 +121,6 @@
                 android:singleLine="true"
                 android:textColor="@color/colorTextTitle"
                 android:textStyle="bold" />
-
-
 
 
         </RelativeLayout>
