@@ -18,7 +18,7 @@ class WebFragment : Fragment(R.layout.fragment_web) {
         val article = args.article
         webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            loadUrl(article.url.toString())
         }
 
 
