@@ -5,7 +5,9 @@ import androidx.room.Entity
 
 data class NewResponse(
 
-    val articles: List<Article>?,
+    val articles:MutableList<Article>,
     val status: String?,
     val totalResults: Int?
 )
+
+
