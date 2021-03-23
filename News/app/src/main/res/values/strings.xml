@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">News</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="openWebsite">Web Sitesine Git</string>
-    <string name="news">Haberler</string>
-    <string name="news_detail">Haber Detayı</string>
-</resources>
