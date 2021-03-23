@@ -12,30 +12,31 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/colorRed"
-        app:title="Haber Detayı"
+        app:title="@string/news_detail"
         app:titleTextColor="@color/white"
         tools:ignore="MissingConstraints" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
 
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardview"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="11dp"
-            android:layout_marginTop="7dp"
-            android:layout_marginRight="11dp"
-            android:layout_marginBottom="7dp"
-            app:cardCornerRadius="10dp"
-            app:cardElevation="1dp">
+            android:orientation="vertical"
+            android:padding="10dp">
 
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="11dp"
+                android:layout_marginTop="7dp"
+                android:layout_marginRight="11dp"
+                android:layout_marginBottom="7dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="1dp">
 
 
                 <RelativeLayout
@@ -44,7 +45,7 @@
                     android:background="?android:attr/selectableItemBackground">
 
                     <ImageView
-                        android:id="@+id/backdrop"
+                        android:id="@+id/detail_urlToImage"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:scaleType="centerCrop"
@@ -55,7 +56,7 @@
                         android:id="@+id/shadow_bottom"
                         android:layout_width="match_parent"
                         android:layout_height="80dp"
-                        android:layout_alignBottom="@id/backdrop"
+                        android:layout_alignBottom="@id/detail_urlToImage"
                         android:src="@drawable/bottom_shadow" />
 
 
@@ -76,7 +77,7 @@
                     <FrameLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/backdrop"
+                        android:layout_below="@id/detail_urlToImage"
                         android:layout_alignParentRight="true"
                         android:layout_marginTop="-50dp"
                         android:layout_marginRight="20dp"
@@ -104,7 +105,7 @@
                         android:id="@+id/detail_title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@id/backdrop"
+                        android:layout_below="@id/detail_urlToImage"
                         android:layout_marginLeft="16dp"
                         android:layout_marginTop="10dp"
                         android:layout_marginRight="16dp"
@@ -163,7 +164,7 @@
                             android:textStyle="bold" />
 
                         <com.github.ivbaranov.mfb.MaterialFavoriteButton
-                            android:id="@+id/favBtn"
+                            android:id="@+id/favButton"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginEnd="20dp"
@@ -171,12 +172,13 @@
                             app:layout_constraintEnd_toStartOf="@id/detail_hour"
                             app:mfb_color="black"
                             app:mfb_type="heart" />
+
                         <ImageView
-                            android:id="@+id/shareBtn"
+                            android:id="@+id/shareButton"
                             android:layout_width="wrap_content"
-                            android:layout_toRightOf="@id/favBtn"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
+                            android:layout_toRightOf="@id/favButton"
                             android:backgroundTint="@color/black"
                             android:src="@drawable/ic_baseline_share_24"
                             app:layout_constraintBottom_toBottomOf="parent"
@@ -187,20 +189,22 @@
 
                 </RelativeLayout>
 
-        </androidx.cardview.widget.CardView>
+            </androidx.cardview.widget.CardView>
 
-        <Button
-            android:id="@+id/web_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/black"
-            android:text="@string/openWebsite"
-            android:textColor="@android:color/white"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            <Button
+                android:id="@+id/openWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/black"
+                android:textStyle="bold"
+                android:textSize="17sp"
+                android:text="@string/openWebsite"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+        </LinearLayout>
     </ScrollView>
 
 </LinearLayout>
